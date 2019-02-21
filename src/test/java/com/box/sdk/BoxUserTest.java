@@ -425,4 +425,21 @@ public class BoxUserTest {
         Assert.assertEquals(transferredFolderName, movedFolder.getName());
         Assert.assertEquals(createdByLogin, movedFolder.getCreatedBy().getLogin());
     }
+
+    @Test
+    @Category(UnitTest.class)
+    public void testAsUser() {
+        api.asUser("275027933");
+        BoxFile file = new BoxFile(api, "272771117582");
+        BoxFile.Info fileInfo = file.getInfo();
+
+        BoxAPIConnection api = new BoxAPIConnection("JFZKOLY58p1MzOGzbidAxIHAikwZ2r8j");
+        URL url = FILE_URL_TEMPLATE.build(api, boxFileId);
+        BoxAPIRequest request = new BoxAPIRequest(api, url, "GET");
+        if (!StringUtils.isEmpty(paraAsUserId)) {
+            LOGGER.debug("add As-User: {}", paraAsUserId);
+            request.addHeader("As-User", paraAsUserId);
+        }
+        return request.send();
+    }
 }
