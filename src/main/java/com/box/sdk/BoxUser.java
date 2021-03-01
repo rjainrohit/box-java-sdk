@@ -145,6 +145,15 @@ public class BoxUser extends BoxCollaborator {
             requestJSON.add("is_exempt_from_login_verification", params.getIsExemptFromLoginVerification());
             requestJSON.add("is_platform_access_only", params.getIsPlatformAccessOnly());
             requestJSON.add("external_app_user_id", params.getExternalAppUserId());
+            JsonArray trackingCodesJsonArray = new JsonArray();
+            for (String attrKey : params.getTrackingCodes().keySet()) {
+                JsonObject trackingCode = new JsonObject();
+                trackingCode.set("type", "tracking_code");
+                trackingCode.set("name", attrKey);
+                trackingCode.set("value", params.getTrackingCodes().get(attrKey));
+                trackingCodesJsonArray.add(trackingCode);
+            }
+            requestJSON.add("tracking_codes", trackingCodesJsonArray);
         }
 
         URL url = USERS_URL_TEMPLATE.build(api.getBaseURL());

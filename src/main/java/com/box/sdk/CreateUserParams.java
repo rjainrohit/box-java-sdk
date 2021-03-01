@@ -1,5 +1,7 @@
 package com.box.sdk;
 
+import java.util.Map;
+
 /**
  * Contains optional parameters for creating a new enterprise user on Box.
  */
@@ -18,6 +20,7 @@ public class CreateUserParams {
     private String phone;
     private String timezone;
     private String externalAppUserId;
+    private Map<String, String> trackingCodes;
 
     /**
      * Gets whether or not the new user will be able to see other enterprise users in their contact list.
@@ -273,4 +276,21 @@ public class CreateUserParams {
         this.externalAppUserId = externalAppUserId;
         return this;
     }
+
+	/**
+	 * @return the trackingCodes
+	 */
+	public Map<String, String> getTrackingCodes() {
+		return trackingCodes;
+	}
+
+	/**
+	 * Sets the tracking codes
+	 * @param trackingCodes the trackingCodes to set
+     * @return                  this CreateUserParams object for chaining. 
+	 */
+	public CreateUserParams setTrackingCodes(Map<String, String> trackingCodes) {
+		this.trackingCodes = trackingCodes;
+		return this;
+	}
 }
