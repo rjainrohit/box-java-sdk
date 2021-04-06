@@ -277,20 +277,20 @@ public class CreateUserParams {
         return this;
     }
 
-	/**
-	 * @return the trackingCodes
-	 */
-	public Map<String, String> getTrackingCodes() {
-		return trackingCodes;
-	}
+    /**
+     * @return the trackingCodes
+     */
+    public Map<String, String> getTrackingCodes() {
+        return this.trackingCodes;
+    }
 
-	/**
-	 * Sets the tracking codes
-	 * @param trackingCodes the trackingCodes to set
-     * @return                  this CreateUserParams object for chaining. 
-	 */
-	public CreateUserParams setTrackingCodes(Map<String, String> trackingCodes) {
-		this.trackingCodes = trackingCodes;
-		return this;
-	}
+    /**
+     * Sets the tracking codes.
+     * @param trackingCodes the trackingCodes to set.
+     * @return                  this CreateUserParams object for chaining.
+     */
+    public CreateUserParams setTrackingCodes(Map<String, String> trackingCodes) {
+        this.trackingCodes = trackingCodes;
+        return this;
+    }
 }
